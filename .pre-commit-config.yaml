@@ -1,0 +1,35 @@
+repos:
+  # Best Practice From: https://black.readthedocs.io/en/stable/integrations/source_version_control.html
+  - repo: https://github.com/psf/black
+    rev: 23.3.0
+    hooks:
+      - id: black
+
+  # Best Practice From: https://pycqa.github.io/isort/docs/configuration/black_compatibility.html
+  - repo: https://github.com/pycqa/isort
+    rev: 5.12.0
+    hooks:
+      - id: isort
+        args: ["--profile", "black", "--filter-files"]
+
+  # From https://github.com/python/mypy#integrations
+  # - repo: https://github.com/pre-commit/mirrors-mypy
+  #   rev: v1.2.0
+  #   hooks:
+  #     - id: mypy
+  #       args: [--ignore-missing-imports, --check-untyped-defs]
+
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: requirements-txt-fixer
+
+  # From https://prettier.io/docs/en/precommit.html#option-3-pre-commithttpsgithubcompre-commitpre-commit
+  - repo: https://github.com/pre-commit/mirrors-prettier
+    rev: v4.0.0-alpha.8
+    hooks:
+      - id: prettier
+        types_or: [css, javascript, html, markdown, yaml]
+# http://mirrors.cloud.tencent.com/npm/
