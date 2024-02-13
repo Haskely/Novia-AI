@@ -4,18 +4,14 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              clifford: "#da373d",
-            },
-          },
-        },
-      };
-    </script>
+    <script src="./tailwind.config.js"></script>
     <style type="text/tailwindcss">
+      @tailwind base; /* Preflight will be injected here */
+
+      @tailwind components;
+
+      @tailwind utilities;
+
       @layer utilities {
         .content-auto {
           content-visibility: auto;
@@ -33,21 +29,23 @@
   <body
     class="bg-[url('image/transparent-white-noise-300x300.png')] bg-blue-600"
   >
-    <div
-      id="layout"
-      class="grid grid-cols-[200px_minmax(700px,_1fr)] grid-rows-[3em_minmax(500px,_1fr)_1.5em] h-screen"
-    >
-      <head class="col-[2_/_3] row-[1_/_2] bg-green-500/50">
-        head
-      </head>
-      <aside class="col-[1_/_2] row-span-full bg-rose-500/50">aside</aside>
-      <main class="col-[2_/_3] row-[2_/_3] bg-sky-500/50">main</main>
-      <footer class="col-[2_/_3] row-[3_/_4] bg-violet-700/50">
-        footer
-        <a href="https://beian.miit.gov.cn/" target="_blank"
-          >沪ICP备2024050268号-1</a
-        >
-      </footer>
+    <div id="layout" class="grid grid-cols-[200px_minmax(700px,_1fr)] h-screen">
+      <aside class="col-[1_/_2] row-span-full bg-rose-500/10">aside</aside>
+
+      <div
+        class="m-1 row-span-full grid grid-rows-[3em_minmax(500px,_1fr)_1.5em] rounded-md shadow bg-white/90"
+      >
+        <head class="row-[1_/_2] bg-green-500/10">
+          head
+        </head>
+        <main class="row-[2_/_3] bg-sky-500/30">main</main>
+        <footer class="row-[3_/_4] bg-violet-700/10">
+          footer
+          <a href="https://beian.miit.gov.cn/" target="_blank"
+            >沪ICP备2024050268号-1</a
+          >
+        </footer>
+      </div>
     </div>
 
     <script src="index.js"></script>
