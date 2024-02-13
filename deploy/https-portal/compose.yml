@@ -1,14 +1,14 @@
-version: '3'
+version: "3"
 
 services:
   https-portal:
     image: steveltn/https-portal:1
     ports:
-      - '80:80'
-      - '443:443'
+      - "80:80"
+      - "443:443"
     environment:
       STAGE: production
-      DOMAINS: 'novia.love, www.novia.love => https://novia.love'
+      DOMAINS: "novia.love, www.novia.love => https://novia.love"
     volumes:
       - ./ssl_certs:/var/lib/https-portal
       - ../../frontend:/var/www/vhosts/novia.love
