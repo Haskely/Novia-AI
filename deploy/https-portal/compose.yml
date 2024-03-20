@@ -9,7 +9,8 @@ services:
       - "443:443"
     environment:
       STAGE: production
-      DOMAINS: "novia.love, www.novia.love => https://novia.love"
+      DOMAINS: "novia.love, www.novia.love => https://novia.love, supernova.host => https://novia.love, www.supernova.host => https://novia.love"
     volumes:
       - ./ssl_certs:/var/lib/https-portal
       - ../../frontend:/var/www/vhosts/novia.love
+    restart: always
